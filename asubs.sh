@@ -86,13 +86,13 @@ echo -e "${CYAN}Task Completed!${RESET}"
 
 # Running Nuclei for subdomain takeovers
 echo -e "${GREEN}Running Nuclei for possible subdomain takeovers...${RESET}"
-cat subdomains.txt | nuclei -silent -t /home/bugbounty450/nuclei-templates/http/takeovers/*.yaml > nuclei/nuclei-subover.txt
+cat subdomains.txt | nuclei -silent -t /$HOME/nuclei-templates/http/takeovers/*.yaml > nuclei/nuclei-subover.txt
 echo -e "${CYAN}Task Completed!${RESET}"
 
 # Loop through the years 2000 to 2024 for CVE templates
 for year in {2000..2024}; do
     echo -e "${GREEN}Running Nuclei template for year $year...${RESET}"
-    cat subdomains.txt | uro | nuclei -silent -rate-limit 200 -t /home/bugbounty450/nuclei-templates/http/cves/$year/*.yaml > nuclei/nuclei-$year.txt
+    cat subdomains.txt | uro | nuclei -silent -rate-limit 200 -t /$HOME/nuclei-templates/http/cves/$year/*.yaml > nuclei/nuclei-$year.txt
 done
 
 echo -e "${GREEN}Process complete! Check the output files for results.${RESET}"
