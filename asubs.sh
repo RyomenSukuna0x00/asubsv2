@@ -38,7 +38,7 @@ fi
 # Main commands
 #Running Subfinder | Htppx | anew
 echo -e "${GREEN}Running Subfinder, Httpx and anew...${RESET}"
-echo "${TARGET_DOMAIN}" | subfinder -silent | httpx -silent | anew | tee subdomains.txt > /dev/null
+echo "${TARGET_DOMAIN}" | subfinder -silent | anew | httpx -silent | tee subdomains.txt > /dev/null
 echo -e "${CYAN}Task Completed!${RESET}"
 
 
