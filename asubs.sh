@@ -66,6 +66,9 @@ echo -e "${CYAN}Task Completed!${RESET}"
 
 echo -e "${GREEN}Running Httpx Scanning for sensitive files...${RESET}"
 cat subdomains.txt | httpx -silent -path "/server-status" -mc 200 -title > httpx-Server-status.txt
+cat subdomains.txt | httpx -silent -path "/phpinfo.php" -mc 200 -title > httpx-phpinfo
+cat subdomains.txt | httpx -silent -path "/.DS_Store" -mc 200 -title > httpx-DS_store.txt
+cat subdomains.txt | httpx -silent -path "/.git" -mc 200 -title > httpx-git.txt
 echo -e "${CYAN}Task Completed!${RESET}"
 
 
